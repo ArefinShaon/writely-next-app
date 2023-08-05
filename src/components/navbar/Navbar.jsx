@@ -1,9 +1,33 @@
-import React from "react";
+"use client"
+import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import logo from "public/logo.svg";
 import Link from "next/link";
-const Navbar = () => {
+import { FaUser, FaMoon, FaSun } from "react-icons/fa";
+import { AuthContext } from "@/providers/AuthProvider";
 
+const Navbar = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (isDarkMode) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+  }, [isDarkMode]);
+  const toggleTheme = () => {
+    setIsDarkMode((prevState) => !prevState);
+  };
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        // Redirect to the home page
+
+      })
+      .catch((error) => console.log(error));
+  };
   const navItems = (
     <>
       <li>
@@ -17,7 +41,37 @@ const Navbar = () => {
             </li>
             <li>
               <Link href="/contact">Contact </Link>
-            </li>
+      </li>
+      {user?.email ? (
+        <>
+          <li>
+            <Link href="/dashboard">Dashboard</Link>
+          </li>
+          <li>
+            <button onClick={handleLogOut}>Log out</button>
+          </li>
+          <li className="nav-item-user">
+            <span className="tooltip">
+              {user.photoURL ? (
+                <Image
+                  className="rounded-full w-8 mx-2 text-center"
+                  src={user.photoURL}
+                  alt="Image"
+                  height={50}
+                  width={50}
+                  title={user.displayName}
+                />
+              ) : (
+                <FaUser className="rounded-full w-12 mx-2" />
+              )}
+            </span>
+          </li>
+        </>
+      ) : (
+        <li>
+          <Link href="/login">Login</Link>
+        </li>
+      )}
      
     </>
   );
@@ -55,12 +109,19 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 font-bold">
+        <ul className="menu menu-horizontal px-1 text-center items-center font-bold">
         {navItems}
         </ul>
       </div>
-      <div className="navbar-end">
-      <Link className="font-bold btn btn-ghost mr-8" href="/login">Login</Link>
+      <div className="navbar-end md:mr-8">
+        <p className="font-bold btn btn-ghost" >Blog</p>
+        <button
+          className="theme-toggle m-3 mr-6 text-gray-600"
+          onClick={toggleTheme}
+          aria-label={isDarkMode ? "Light Mode" : "Dark Mode"}
+        >
+          {isDarkMode ? <FaSun /> : <FaMoon />}
+        </button>
       </div>
     </div>
   );

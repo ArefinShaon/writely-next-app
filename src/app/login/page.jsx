@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client"
 
 
@@ -7,6 +8,7 @@ import Link from "next/link";
 import { FaGoogle, FaEye, FaEyeSlash, FaArrowRight } from "react-icons/fa";
 import { AuthContext } from "@/providers/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import Swal from "sweetalert2";
 
 
 const page = () => {
@@ -15,17 +17,46 @@ const page = () => {
   const [error, setError] = useState("");
   const { signIn, providerLogin } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
+  
 
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate(from);
-        swal("Good job!", "Successfully Log In", "success");
+        Swal.fire({
+          icon: "success",
+          title: "Good job!",
+          text: "Successfully Log In",
+        });
        
       })
       .catch((error) => console.error(error));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSuccess(false);
+
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setSuccess(true);
+        Swal.fire({
+          icon: "success",
+          title: "Good job!",
+          text: "Successfully Log In",
+        });        form.reset();
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
   };
 
   const togglePasswordVisibility = () => {
@@ -39,12 +70,12 @@ const page = () => {
       }}
       className="hero min-h-screen bg-base-200"
     >
-      <div className="hero-content w-1/3 h-1/2 flex-col ">
+      <div className="hero-content w-full h-1/2 flex-col ">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold text-white">Login now!</h1>
         </div>
         <div className="card w-full max-w-lg shadow-2xl bg-gray-200">
-          <form className="card-body">
+          <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-black">Email Address</span>
@@ -96,7 +127,7 @@ const page = () => {
           </form>
 
           <div className="mb-2 flex justify-center mx-8 -mt-6">
-            <button className="btn btn-outline text-bold w-full mx-4">
+            <button  onClick={handleGoogleSignIn} className="btn btn-outline text-bold w-full mx-4">
               <p className="px-2">
                 <FaGoogle className="text-green-600 text-lg"></FaGoogle>
               </p>{" "}
