@@ -6,13 +6,15 @@ import img from "../../../public/dark-gray-wall-with-wooden-plank-product-backgr
 import { useContext, useState } from "react";
 import { AuthContext } from "@/providers/AuthProvider";
 import swal from 'sweetalert';
+import { useRouter } from "next/navigation";
 
 
 const page = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const [passwordError, setPasswordError] = useState("");
   const [success, setSuccess] = useState(false);
-  
+  const router = useRouter();
+
 
 
   const handleSignUp = (event) => {
@@ -54,8 +56,8 @@ const page = () => {
             setSuccess(true);
             swal("Good job!", "Successfully create an account", "success");
             form.reset();
-           
-          })
+            router.push("/");
+            })
           .catch((error) => {
             console.error(error);
             setPasswordError(error.message);
@@ -133,17 +135,9 @@ const page = () => {
                 className="input input-bordered border-zinc-900 bg-white"
                 required
               />
+               {passwordError && <p className="text-red-500">{passwordError}</p>}
             </div>
-            {/* {passwordError && <p className="text-error">{passwordError}</p>}
-            {success && (
-              <div className="toast toast-end toast-middle">
-                <div className="alert alert-success">
-                  <div>
-                    <span>User created successfully.</span>
-                  </div>
-                </div>
-              </div>
-            )} */}
+           
             <div className="form-control mt-6">
               <input
                 type="submit"

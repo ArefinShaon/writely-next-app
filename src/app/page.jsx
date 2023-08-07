@@ -1,5 +1,6 @@
 import Image from "next/image";
 import img from "public/hero.png";
+import Blog from "./blog/page";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Blog></Blog>
     </div>
   );
 }

@@ -9,6 +9,7 @@ import { FaGoogle, FaEye, FaEyeSlash, FaArrowRight } from "react-icons/fa";
 import { AuthContext } from "@/providers/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 
 const page = () => {
@@ -17,6 +18,8 @@ const page = () => {
   const [error, setError] = useState("");
   const { signIn, providerLogin } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
+  const router = useRouter();
+
   
 
   const handleGoogleSignIn = () => {
@@ -29,6 +32,7 @@ const page = () => {
           title: "Good job!",
           text: "Successfully Log In",
         });
+        router.push("/");
        
       })
       .catch((error) => console.error(error));
@@ -51,7 +55,10 @@ const page = () => {
           icon: "success",
           title: "Good job!",
           text: "Successfully Log In",
-        });        form.reset();
+        });
+        form.reset();
+        router.push("/");
+        
       })
       .catch((error) => {
         console.error(error);
@@ -68,13 +75,13 @@ const page = () => {
         backgroundImage: `url(${img.src})`,
         opacity: 0.9,
       }}
-      className="hero min-h-screen bg-base-200"
+      className="hero min-h-screen bg-green-50"
     >
       <div className="hero-content w-full h-1/2 flex-col ">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold text-white">Login now!</h1>
         </div>
-        <div className="card w-full max-w-lg shadow-2xl bg-gray-200">
+        <div className="card w-full max-w-lg shadow-2xl bg-green-50">
           <form onSubmit={handleSubmit} className="card-body">
             <div className="form-control">
               <label className="label">

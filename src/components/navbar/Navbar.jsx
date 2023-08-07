@@ -5,10 +5,13 @@ import logo from "public/logo.svg";
 import Link from "next/link";
 import { FaUser, FaMoon, FaSun } from "react-icons/fa";
 import { AuthContext } from "@/providers/AuthProvider";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  const router = useRouter();
+
   useEffect(() => {
     const root = window.document.documentElement;
     if (isDarkMode) {
@@ -23,7 +26,7 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        // Redirect to the home page
+        router.push("/");
 
       })
       .catch((error) => console.log(error));
