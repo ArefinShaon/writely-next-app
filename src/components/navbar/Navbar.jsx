@@ -57,11 +57,11 @@ const Navbar = () => {
             <span className="tooltip">
               {user.photoURL ? (
                 <Image
-                  className="rounded-full w-8 mx-2 text-center"
+                  className="rounded-full w-10 mx-2 text-center"
                   src={user.photoURL}
                   alt="Image"
-                  height={50}
-                  width={50}
+                  height={40}
+                  width={40}
                   title={user.displayName}
                 />
               ) : (
@@ -83,7 +83,7 @@ const Navbar = () => {
     <div className="navbar bg-green-200">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden w-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -108,7 +108,7 @@ const Navbar = () => {
         </div>
 
         <Link className="btn btn-ghost normal-case text-xl" href="/">
-          <Image src={logo} alt="Logo" />
+          <Image src={logo} alt="Logo"  priority={true} />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
