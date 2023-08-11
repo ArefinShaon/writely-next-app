@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import logo from "public/logo.svg";
@@ -27,26 +27,25 @@ const Navbar = () => {
     logOut()
       .then(() => {
         router.push("/");
-
       })
       .catch((error) => console.log(error));
   };
   const navItems = (
     <>
       <li>
-            <Link href="/">Home</Link>
-            </li>
-             <li>
-            <Link href="/features">Features</Link>
-            </li>
-            <li>
-              <Link href="/about">About us</Link>
-            </li>
-            <li>
-              <Link href="/contact">Contact </Link>
+        <Link href="/">Home</Link>
+      </li>
+      <li>
+        <Link href="/about">About us</Link>
+      </li>
+      <li>
+        <Link href="/contact">Contact </Link>
       </li>
       {user?.email ? (
         <>
+          <li>
+            <Link href="/addedBlog">My Blogs</Link>
+          </li>
           <li>
             <Link href="/dashboard">Dashboard</Link>
           </li>
@@ -75,12 +74,11 @@ const Navbar = () => {
           <Link href="/login">Login</Link>
         </li>
       )}
-     
     </>
   );
 
   return (
-    <div className="navbar bg-green-200">
+    <div className="navbar fixed  z-50 top-0 bg-green-200">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden w-full">
@@ -103,21 +101,21 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box font-bold w-52"
           >
-                {navItems}
+            {navItems}
           </ul>
         </div>
 
         <Link className="btn btn-ghost normal-case text-xl" href="/">
-          <Image src={logo} alt="Logo"  priority={true} />
+          <Image src={logo} alt="Logo" priority={true} />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-center items-center font-bold">
-        {navItems}
+          {navItems}
         </ul>
       </div>
       <div className="navbar-end md:mr-8">
-        <p className="font-bold btn btn-ghost" >Blog</p>
+        <p className="font-bold btn btn-ghost">Blog</p>
         <button
           className="theme-toggle m-3 mr-6 text-gray-600"
           onClick={toggleTheme}

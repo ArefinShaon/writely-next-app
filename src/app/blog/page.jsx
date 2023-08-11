@@ -68,7 +68,7 @@ const page = () => {
         back often and enjoy.
       </p>
       <div className="mt-6">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 ">
           {data.map((item) => (
             <div
               key={item._id}
@@ -81,14 +81,12 @@ const page = () => {
                   width={400}
                   alt="Image"
                   priority={true}
-                ></Image>
-
-                <div className="mx-auto  flex justify-center items-center">
-                <h3 className=" text-center items-center rounded-lg font-semibold text-cyan-600 mb-2 absolute bottom-0 bg-white opacity-80  btn btn-sm">
-                  {item.category}
-                </h3>
+                />
+                <div className="mx-auto flex justify-center items-center">
+                  <h3 className="text-center items-center rounded-lg font-semibold text-cyan-600 mb-2 absolute bottom-0 bg-white opacity-80 btn btn-sm">
+                    {item.category}
+                  </h3>
                 </div>
-                
               </Link>
             </div>
           ))}

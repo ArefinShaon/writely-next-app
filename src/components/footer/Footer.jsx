@@ -3,8 +3,11 @@ import Image from "next/image";
 import logo from "public/logo.svg";
 const Footer = () => {
     return (
-        <div>
-           <footer className="footer footer-center p-10 bg-green-200 text-base-content rounded">
+      <div>
+        <footer className="footer footer-center  p-10 bg-green-200 text-base-content rounded">
+        <div className='footer'>
+        <Image src={logo} alt="Logo"  priority={true} />
+      </div >
   <div className="grid grid-flow-col gap-4">
     <a className="link link-hover">About us</a> 
     <a className="link link-hover">Contact</a> 

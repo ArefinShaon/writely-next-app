@@ -4,12 +4,21 @@ import Post from "@/models/Post";
 
 export const GET = async (request) => {
   const url = new URL(request.url);
+  const uploaderEmail = url.searchParams.get("uploaderEmail");
   const category = url.searchParams.get("category");
 
   try {
     await connect();
 
-    const posts = await Post.find(category ? { category } : {});
+    let posts;
+
+    if (uploaderEmail) {
+      posts = await Post.find({ uploaderEmail });
+    } else if (category) {
+      posts = await Post.find({ category });
+    } else {
+      posts = await Post.find();
+    }
 
     return new NextResponse(JSON.stringify(posts), { status: 200 });
   } catch (err) {

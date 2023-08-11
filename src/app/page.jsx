@@ -1,6 +1,7 @@
 import Image from "next/image";
 import img from "public/hero.png";
 import Blog from "./blog/page";
+import Tag from "./allTags/page";
 
 export default function Home() {
   return (
@@ -21,13 +22,14 @@ export default function Home() {
               placeholder="Enter your email"
               className="input input-bordered w-full max-w-xs"
             />
-            <button className="btn btn-success text-white bg-green-800">
+            <button className="btn btn-success text-white mx-2 my-2 bg-green-800">
               Subscribe
             </button>
           </div>
         </div>
       </div>
       <Blog></Blog>
+      <Tag></Tag>
     </div>
   );
 }
