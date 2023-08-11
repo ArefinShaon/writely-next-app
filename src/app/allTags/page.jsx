@@ -52,25 +52,36 @@ const page = () => {
       </h1>
 
       <p className="mx-auto text-center my-6 text-slate-400">
-      Explore our diverse range of topics, from technology and science to art and culture, for an enriching and inspiring experience.
+        Explore our diverse range of topics, from technology and science to art
+        and culture, for an enriching and inspiring experience.
       </p>
       <div className="mt-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {visibleData.map((item) => (
-            <div key={item._id}>
+            <div
+              key={item._id}
+              className="rounded-lg"
+              style={{ backgroundColor: "#151A25" }}
+            >
               <Image
                 src={item.pictureUrl}
                 height={400}
                 width={450}
                 alt="Image"
-                      priority={true}
-                      className="transform transition-all hover:scale-105 "
+                priority={true}
+                className="transform transition-all hover:translate-x-2 hover:scale-100 rounded-lg mx-auto"
               ></Image>
               <div>
-                <h1 className="font-bold md:text-xl"> {item.title}</h1>
+                <h1 className="font-bold md:text-xl py-2 text-white text-center">
+                  {" "}
+                  {item.title}
+                </h1>
               </div>
               <div className="card-actions justify-end">
-                <Link href={`/allTags/${item._id}`} className="btn text-green-800 font-bold btn-outline border-0 border-b-4 mt-2 md:mx-10 ">
+                <Link
+                  href={`/allTags/${item._id}`}
+                  className="btn text-white font-bold btn-outline btn-success m-4 border-0 border-b-4 mt-2 md:mx-10 "
+                >
                   Read More..
                 </Link>
               </div>

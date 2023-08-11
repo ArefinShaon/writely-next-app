@@ -81,6 +81,7 @@ const page = () => {
                   width={400}
                   alt="Image"
                   priority={true}
+                  className="rounded"
                 />
                 <div className="mx-auto flex justify-center items-center">
                   <h3 className="text-center items-center rounded-lg font-semibold text-cyan-600 mb-2 absolute bottom-0 bg-white opacity-80 btn btn-sm">
