@@ -58,10 +58,10 @@ const dashboard = () => {
       });
   };
   return (
-    <div className="md:flex mt-24 lg:mt-28 mb-8 ">
+    <div className="md:flex mt-16 lg:mt-20 py-8 mb-8 ">
       <div className="md:w-1/2">
         <Image
-          className=" mx-auto banner-img "
+          className=" mx-auto banner-img py-6 "
           height={500}
           width={500}
           src={img1}
@@ -70,7 +70,7 @@ const dashboard = () => {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="md:w-1/2 mx-auto md:mx-0 md:mt-0 mt-8 bg-green-50 p-8 text-center rounded shadow"
+        className="md:w-1/2 mx-auto md:mx-0 md:mt-0 mt-8  p-8 text-center rounded shadow"
       >
         <h2 className="md:text-5xl font-semibold md:mb-6 text-center text-2xl p-6">
           <span className="text-green-800">Add</span>{" "}

@@ -48,7 +48,7 @@ const Page = ({ params }) => {
   }
 
   return (
-    <div className="mt-24 mb-10 lg:px-20">
+    <div className="lg:mt-20 mt-16 py-10 mb-10 lg:px-20">
       <h1 className="text-2xl lg:text-3xl text-black font-bold hover:text-green-600 underline mb-6 text-center">
         {decodedCategory}
       </h1>

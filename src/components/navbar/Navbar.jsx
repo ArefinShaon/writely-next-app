@@ -14,15 +14,22 @@ const Navbar = () => {
 
   useEffect(() => {
     const root = window.document.documentElement;
+
     if (isDarkMode) {
-      root.classList.add("dark");
+      root.style.setProperty('--foreground-rgb', 'var(--foreground-rgb-dark)');
+      root.style.setProperty('--background-start-rgb', 'var(--background-start-rgb-dark)');
+      root.style.setProperty('--background-end-rgb', 'var(--background-end-rgb-dark)');
     } else {
-      root.classList.remove("dark");
+      root.style.setProperty('--foreground-rgb', 'var(--foreground-rgb-light)');
+      root.style.setProperty('--background-start-rgb', 'var(--background-start-rgb-light)');
+      root.style.setProperty('--background-end-rgb', 'var(--background-end-rgb-light)');
     }
   }, [isDarkMode]);
+
   const toggleTheme = () => {
-    setIsDarkMode((prevState) => !prevState);
+    setIsDarkMode(prevState => !prevState);
   };
+
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -78,7 +85,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar fixed  z-50 top-0 bg-green-200">
+    <div className="navbar fixed text-base-content  z-50 top-0 bg-green-200">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden w-full">
@@ -99,7 +106,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box font-bold w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  rounded-box font-bold w-52"
           >
             {navItems}
           </ul>
@@ -117,7 +124,7 @@ const Navbar = () => {
       <div className="navbar-end md:mr-8">
         <p className="font-bold btn btn-ghost">Blog</p>
         <button
-          className="theme-toggle m-3 mr-6 text-gray-600"
+          className="theme-toggle m-3 mr-6 "
           onClick={toggleTheme}
           aria-label={isDarkMode ? "Light Mode" : "Dark Mode"}
         >

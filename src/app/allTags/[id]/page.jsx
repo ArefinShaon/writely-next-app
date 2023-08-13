@@ -17,7 +17,7 @@ async function getData(id) {
 const page = async ({ params }) => {
   const data = await getData(params.id);
   return (
-    <div className="md:mt-20 mt-16 px-6 py-6 md:px-16 ">
+    <div className="md:mt-20 mt-16 px-6 py-6 md:py-10 md:px-16 ">
       <div className="mx-auto flex justify-center items-center">
         <h3 className="text-center  rounded-lg font-semibold text-green-600 mb-2  bg-slate-200 btn btn-sm">
           {data.category}
