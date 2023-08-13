@@ -6,7 +6,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 async function getData(category) {
   const res = await fetch(
-    `http://localhost:3000/api/posts?category=${category}`,
+    `/api/posts?category=${category}`,
     {
       cache: "no-store",
     }
