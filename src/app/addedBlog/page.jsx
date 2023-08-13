@@ -3,6 +3,7 @@
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "@/providers/AuthProvider";
 import Swal from "sweetalert2";
+import Image from "next/image";
 const page = () => {
   const { user } = useContext(AuthContext);
   const userEmail = user?.email;
@@ -34,7 +35,7 @@ const page = () => {
       Swal.fire({
         icon: "success",
         title: "Good job!",
-        text: "Successfully Log In",
+        text: "Successfully Deleted",
       });
     } catch (err) {
       console.log(err);
@@ -43,19 +44,31 @@ const page = () => {
 
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return(
+      <div className="flex justify-center items-center mt-32 ">
+        <span className="loading loading-infinity loading-lg bg-green-600"></span>
+      </div>
+    );
   }
 
   return (
-    <div>
-      <h1>Your Blogs</h1>
-      {blogs.map((blog) => (
-        <div key={blog._id}>
-          <h2>{blog.title}</h2>
-          <p onClick={() => handleDelete(blog._id)} className="btn btn-success"> DELETE</p>
+    <div className="mt-16 py-10 px-6 md:px-18 bg-base-200">
+  <h1 className="text-xl md:text-3xl font-bold text-center my-4">My Added Blogs</h1>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {blogs.map((blog, index) => (
+      <div key={blog._id} className="border rounded-lg p-4 bg-green-50">
+        <div className="flex  items-center mb-2">
+          <h2 className="font-bold mr-4">{index + 1}. {blog.title}</h2>
+          <p onClick={() => handleDelete(blog._id)} className="btn btn-success">DELETE</p>
         </div>
-      ))}
-    </div>
+        <Image src={blog.pictureUrl} height={400} width={400} alt={blog.title} className="w-full h-auto rounded-lg" />
+      </div>
+    ))}
+  </div>
+</div>
+
+  
+  
   );
 };
 

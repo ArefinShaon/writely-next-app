@@ -58,7 +58,7 @@ const dashboard = () => {
       });
   };
   return (
-    <div className="md:flex mt-12 mb-8 ">
+    <div className="md:flex mt-24 lg:mt-28 mb-8 ">
       <div className="md:w-1/2">
         <Image
           className=" mx-auto banner-img "

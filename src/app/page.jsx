@@ -2,10 +2,11 @@ import Image from "next/image";
 import img from "public/hero.png";
 import Blog from "./blog/page";
 import Tag from "./allTags/page";
+import Features from "@/components/features/Features";
 
 export default function Home() {
   return (
-    <div>
+    <div className="mt-12 py-4">
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Image className="banner-img"  src={img} height={500} width={500} alt="image"></Image>
@@ -30,6 +31,7 @@ export default function Home() {
       </div>
       <Blog></Blog>
       <Tag></Tag>
+      <Features></Features>
     </div>
   );
 }

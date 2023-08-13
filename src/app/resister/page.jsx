@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "@/providers/AuthProvider";
 import swal from 'sweetalert';
 import { useRouter } from "next/navigation";
+import { FaArrowRight } from 'react-icons/fa';
 
 
 const page = () => {
@@ -75,7 +76,7 @@ const page = () => {
             opacity: 0.9,
           }}
           className="hero min-h-screen bg-base-200 flex justify-center text-black py-28">
-        <div className="card w-full max-w-lg shadow-2xl bg-green-50">
+        <div className="card w-full max-w-lg shadow-2xl bg-green-50 ">
           <h1 className="font-bold text-4xl text-center pt-6">
             Create An Account
           </h1>
@@ -150,8 +151,8 @@ const page = () => {
                     <p>Already have an account?</p>
                     
 
-            <Link href="/login" className="text-green-600 font-semibold ml-4">
-              LogIn
+            <Link href="/login" className="text-green-600 items-center flex font-semibold ml-4">
+              LogIn <FaArrowRight className="mx-2"></FaArrowRight>
             </Link>
           </div>
         </div>

@@ -1,26 +1,17 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-"use client"
-
-
-import React, { useContext, useState } from "react";
-import img from "../../../public/dark-gray-wall-with-wooden-plank-product-background.jpg";
+"use client";
+import React, { useContext } from "react";
 import Link from "next/link";
-import { FaGoogle, FaEye, FaEyeSlash, FaArrowRight } from "react-icons/fa";
 import { AuthContext } from "@/providers/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
 import Swal from "sweetalert2";
+import { GoogleAuthProvider } from "firebase/auth";
+import { FaArrowRight, FaGoogle, FaMailBulk } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 
-
 const page = () => {
-  const [success, setSuccess] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
-  const { signIn, providerLogin } = useContext(AuthContext);
+  const { providerLogin } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
   const router = useRouter();
-
-  
 
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
@@ -33,123 +24,70 @@ const page = () => {
           text: "Successfully Log In",
         });
         router.push("/");
-       
       })
       .catch((error) => console.error(error));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setSuccess(false);
-
-    const form = event.target;
-    const email = form.email.value;
-    const password = form.password.value;
-
-    signIn(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        setSuccess(true);
-        Swal.fire({
-          icon: "success",
-          title: "Good job!",
-          text: "Successfully Log In",
-        });
-        form.reset();
-        router.push("/");
-        
-      })
-      .catch((error) => {
-        console.error(error);
-        setError(error.message);
-      });
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
   return (
-    <div
-      style={{
-        backgroundImage: `url(${img.src})`,
-        opacity: 0.9,
-      }}
-      className="hero min-h-screen bg-green-50"
-    >
-      <div className="hero-content w-full h-1/2 flex-col ">
-        <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold text-white">Login now!</h1>
-        </div>
-        <div className="card w-full max-w-lg shadow-2xl bg-green-50">
-          <form onSubmit={handleSubmit} className="card-body">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-black">Email Address</span>
-              </label>
-              <input
-                name="email"
-                type="email"
-                placeholder="email"
-                className="input input-bordered border-zinc-900 bg-white"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-black">Password</span>
-              </label>
-              <div className="relative">
-                <input
-                  name="password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="password"
-                  className="input input-bordered border-zinc-900 bg-white pr-10 w-full"
-                  required
-                />
-                <div
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
-                  onClick={togglePasswordVisibility}
-                >
-                  {showPassword ? (
-                    <FaEye className="text-gray-500" />
-                  ) : (
-                    <FaEyeSlash className="text-gray-500" />
-                  )}
-                </div>
-              </div>
-              <label className="label text-purple-700">
-                {success && <p>Successfully login to the account</p>}
-                {error && <p className="text-red-500">{error}</p>}
-              </label>
-            </div>
-            <div className="form-control mt-4">
-              <input
-                type="submit"
-                className="btn btn-success text-black "
-                value="login"
-              />
-            </div>
-            <div className="divider">Or Log in with</div>
-          </form>
-
-          <div className="mb-2 flex justify-center mx-8 -mt-6">
-            <button  onClick={handleGoogleSignIn} className="btn btn-outline text-bold w-full mx-4">
-              <p className="px-2">
-                <FaGoogle className="text-green-600 text-lg"></FaGoogle>
-              </p>{" "}
-              Login with Google
-            </button>
-          </div>
-
-          <div className="flex justify-around mb-6 mx-8">
-            <p>Need an account? </p>
-            <p>  <Link
-                href="/resister"
-                className="font-semibold text-green-600 flex items-center"
+    <div>
+      <div
+        className=" text-white max-h-full"
+        style={{
+          backgroundImage: `url("https://www.nolanai.app/_next/image?url=https%3A%2F%2Fnolan-space.sfo3.cdn.digitaloceanspaces.com%2Fassets%2Flogin_hero.webp&w=3840&q=75")`,
+          height: "100vh",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className=" ">
+          <h1 className="text-center lg:text-5xl text-3xl font-bold lg:pt-20">
+            Log in
+          </h1>
+          <p className="text-center lg:text-2xl text-xl my-8">
+            Log in to unlock the full Writely Experience
+          </p>
+          <div
+            className="card mx-auto justify-center align-top lg:w-1/3 sm:w-full md:w-1/2 rounded-lg text-neutral-content"
+            style={{ backgroundColor: "#25272cb3" }}
+          >
+            <div className="card-body items-center text-center py-20">
+              <button
+                onClick={handleGoogleSignIn}
+                className="text-black  rounded-full flex py-2 px-7 text-sm font-bold bg-green-300 mb-6"
               >
-                Register <FaArrowRight className="mx-2"></FaArrowRight>
-              </Link></p>
+                <p className="px-2">
+                  <FaGoogle className="text-green-600 text-lg"></FaGoogle>
+                </p>
+                Continue with Google
+              </button>
+
+              <Link
+                className=" text-black flex bg-green-300 rounded-full  py-2 px-8 text-sm font-bold mb-6 "
+                href="/loginform"
+              >
+                <p className="px-2">
+                  <FaMailBulk className="text-green-600 text-lg"></FaMailBulk>
+                </p>
+                Continue with Email
+              </Link>
+              <div className="flex justify-around mb-6 mx-8 text-white">
+                <p>Need an account? </p>
+                <p>
+                  {" "}
+                  <Link
+                    href="/resister"
+                    className="font-semibold text-rose-400 flex items-center px-6"
+                  >
+                    Register <FaArrowRight className="mx-2"></FaArrowRight>
+                  </Link>
+                </p>
+              </div>
+            </div>
+            <p className="text-xs text-white text-center mb-2">
+              By signing up, you agree to the{" "}
+              <span className="text-primary">Terms of Service</span> and{" "}
+              <span className="text-primary">Privacy Policy</span>.
+            </p>
           </div>
         </div>
       </div>
@@ -158,4 +96,3 @@ const page = () => {
 };
 
 export default page;
-

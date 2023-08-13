@@ -56,7 +56,7 @@ const page = () => {
   }
 
   return (
-    <div className="m-6 lg:mt-20">
+    <div className="m-6 lg:mt-20 lg:px-20">
       <h1 className="text-2xl lg:text-3xl">
         <span className="text-black font-bold hover:text-green-600 underline">
           Popular Tags
@@ -69,28 +69,28 @@ const page = () => {
       </p>
       <div className="mt-6">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 ">
-          {data.map((item) => (
-            <div
-              key={item._id}
-              className="transform transition-all hover:scale-105 relative"
-            >
-              <Link href={`/blog/${item.category}`}>
-                <Image
-                  src={item.pictureUrl}
-                  height={400}
-                  width={400}
-                  alt="Image"
-                  priority={true}
-                  className="rounded"
-                />
-                <div className="mx-auto flex justify-center items-center">
-                  <h3 className="text-center items-center rounded-lg font-semibold text-cyan-600 mb-2 absolute bottom-0 bg-white opacity-80 btn btn-sm">
-                    {item.category}
-                  </h3>
-                </div>
-              </Link>
-            </div>
-          ))}
+        {data.map((item) => (
+  <div key={item._id} className="relative">
+    <Link href={`/blog/${item.category}`}>
+      <div className="relative transform transition-all hover:scale-105">
+        <Image
+          src={item.pictureUrl}
+          height={400}
+          width={400}
+          alt="Image"
+          priority={true}
+          className="rounded "
+        />
+        <div className="absolute bottom-0 left-0 right-0  flex justify-center items-center">
+          <h3 className="text-center items-center rounded-lg font-semibold text-green-600 bg-white opacity-80 p-1 mb-1">
+            {item.category}
+          </h3>
+        </div>
+      </div>
+    </Link>
+  </div>
+))}
+
         </div>
       </div>
     </div>

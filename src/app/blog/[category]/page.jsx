@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { FaArrowRight } from "react-icons/fa";
 
 async function getData(category) {
   const res = await fetch(
@@ -47,8 +48,8 @@ const Page = ({ params }) => {
   }
 
   return (
-    <div className="mt-20 mb-10">
-      <h1 className="text-2xl lg:text-3xl text-black font-bold hover:text-green-600 underline mb-6 text-center transform transition-all hover:scale-105">
+    <div className="mt-24 mb-10 lg:px-20">
+      <h1 className="text-2xl lg:text-3xl text-black font-bold hover:text-green-600 underline mb-6 text-center">
         {decodedCategory}
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-6">
@@ -56,30 +57,37 @@ const Page = ({ params }) => {
           <div
             key={item._id}
             className="rounded-lg"
-            style={{ backgroundColor: "#151A25" }}
+            
           >
-            <Image
-              src={item.pictureUrl}
-              height={400}
-              width={450}
-              alt="Image"
-              priority={true}
-              className="transform transition-all hover:scale-105 rounded-lg mx-auto"
-            ></Image>
-            <div>
-              <h1 className="font-bold md:text-xl py-2 text-white text-center">
-                {" "}
-                {item.title}
-              </h1>
-            </div>
-            <div className="card-actions justify-end">
-              <Link
-                href={`/allTags/${item._id}`}
-                className="btn text-white font-bold btn-outline btn-success m-4 border-0 border-b-4 mt-2 md:mx-10 "
-              >
-                Read More..
-              </Link>
-            </div>
+            <div className="relative group">
+                <div className="relative">
+                  <Image
+                    src={item.pictureUrl}
+                    height={450}
+                    width={450}
+                    alt="Image"
+                    priority={true}
+                    className="mx-auto rounded-lg "
+                  />
+                  <div className="px-2 absolute inset-0 bg-slate-500 opacity-0 group-hover:opacity-75 transition-opacity rounded-lg"></div>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Link
+                      href={`/allTags/${item._id}`}
+                      className="btn text-white font-bold btn-success"
+                    >
+                      Continue Reading..
+                      <span>
+                        {" "}
+                        <FaArrowRight></FaArrowRight>{" "}
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+                <div className="mt-2 md:mt-2 px-6">
+                  <h1 className="font-bold  md:text-xl">{item.title}</h1>
+                  <p>By  <span className="font-bold">{item.uploader}</span></p>
+                </div>
+              </div>
           </div>
         ))}
       </div>
