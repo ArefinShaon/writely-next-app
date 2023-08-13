@@ -52,7 +52,7 @@ const page = () => {
   }
 
   return (
-    <div className="mt-16 py-10 px-6 md:px-18 bg-base-200">
+    <div className="mt-16 py-10 px-6 md:px-18 ">
   <h1 className="text-xl md:text-3xl font-bold text-center my-4">My Added Blogs</h1>
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     {blogs.map((blog, index) => (

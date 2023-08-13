@@ -4,7 +4,7 @@ import img from "../../../public/photo-1664575196412-ed801e8333a1.jpeg";
 const About = () => {
     return (
         <div className="lg:mx-16">
-          <div className="hero min-h-screen bg-green-50">
+          <div className="hero min-h-screen">
             <div className="hero-content flex-col-reverse lg:flex-row-reverse">
               <Image
                 src={img}

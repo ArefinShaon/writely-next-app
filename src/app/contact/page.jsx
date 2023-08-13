@@ -3,7 +3,7 @@ import img from "../../../public/apps.jpg";
 
 const Page = () => {
   return (
-    <div className="bg-base-200 mt-20">
+    <div className=" mt-20">
       <div id="contactMe" className="hero text-white py-20 -mt-20">
         <div className="lg:flex-row-reverse">
           <div

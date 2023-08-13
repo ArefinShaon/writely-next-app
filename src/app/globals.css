@@ -18,24 +18,8 @@
 }
 
 /* globals.css */
-.dark {
-  background-color: #333; /* Define the background color for dark mode */
-   /* Define the text color for dark mode */
-}
-body {
-  /* Light mode styles */
-  background-color: #fff;
-  color: #333;
-}
-.dark .navbar {
-  background-color: #333; /* Define the background color for the navbar in dark mode */
-  color: #fff; /* Define the text color for the navbar in dark mode */
-}
-.dark .footer {
-  background-color: #333; /* Define the background color for the navbar in dark mode */
-  color: #fff; /* Define the text color for the navbar in dark mode */
-}
-/* :root {
+
+:root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -57,4 +41,4 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-} */
+}

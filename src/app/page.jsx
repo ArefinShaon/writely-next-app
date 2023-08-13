@@ -7,7 +7,7 @@ import Features from "@/components/features/Features";
 export default function Home() {
   return (
     <div className="mt-12 py-4">
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen ">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Image className="banner-img"  src={img} height={500} width={500} alt="image"></Image>
           <div>

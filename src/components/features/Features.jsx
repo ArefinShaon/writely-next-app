@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Features = () => {
   return (
-    <div className="bg-base-200 pb-12">
+    <div className=" pb-12">
       <h1 className="text-3xl mt-20 mb-20 py-6 text-center font-bold ">Features</h1>
       <div className="hero">
         <div className="hero-content flex-col lg:flex-row-reverse">
