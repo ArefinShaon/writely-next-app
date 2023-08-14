@@ -58,7 +58,8 @@ const dashboard = () => {
       });
   };
   return (
-    <div className="md:flex mt-16 lg:mt-20 py-8 mb-8 ">
+    <div className="md:flex mt-16 lg:mt-20 py-8 pb-8 " 
+    >
       <div className="md:w-1/2">
         <Image
           className=" mx-auto banner-img py-6 "
@@ -85,7 +86,7 @@ const dashboard = () => {
               type="text"
               id="pictureUrl"
               name="pictureUrl"
-              className="input"
+              className="input text-black"
               required
             />
           </div>
@@ -97,7 +98,7 @@ const dashboard = () => {
               type="text"
               id="title"
               name="title"
-              className="input"
+              className="input text-black"
               required
             />
           </div>
@@ -113,7 +114,7 @@ const dashboard = () => {
                   type="text"
                   id="uploader"
                   name="uploader"
-                  className="input"
+                  className="input text-black"
                   defaultValue={user.displayName}
                   required
                 />
@@ -126,7 +127,7 @@ const dashboard = () => {
                   type="email"
                   id="uploaderEmail"
                   name="uploaderEmail"
-                  className="input"
+                  className="input text-black"
                   defaultValue={user.email}
                   required
                 />
@@ -139,7 +140,7 @@ const dashboard = () => {
             <label htmlFor="category" className="block font-medium">
               Feature
             </label>
-            <select id="category" name="category" className="input" required>
+            <select id="category" name="category" className="input text-black" required>
               <option value="">Select Feature</option>
               <option value="Sports">Sports</option>
               <option value="International">International</option>
@@ -153,13 +154,13 @@ const dashboard = () => {
           </div>
         </div>
         <div className="mb-4 text-center">
-          <label htmlFor="description" className="block font-medium">
+          <label htmlFor="description" className="block text-black font-medium">
             Detail description
           </label>
           <textarea
             id="description"
             name="description"
-            className="input w-full"
+            className="input w-full text-black h-16"
             required
           ></textarea>
         </div>

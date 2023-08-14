@@ -39,7 +39,7 @@ const page = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className=" ">
+        <div className="pt-24 md:pt-6 ">
           <h1 className="text-center lg:text-5xl text-3xl font-bold lg:pt-20">
             Log in
           </h1>
@@ -76,7 +76,7 @@ const page = () => {
                   {" "}
                   <Link
                     href="/resister"
-                    className="font-semibold text-rose-400 flex items-center px-6"
+                    className="font-semibold text-green-500 flex items-center px-6"
                   >
                     Register <FaArrowRight className="mx-2"></FaArrowRight>
                   </Link>

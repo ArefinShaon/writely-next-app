@@ -57,7 +57,7 @@ const page = () => {
       }}
     >
       <div>
-        <div className="text-center lg:text-left">
+        <div className="text-center  lg:text-left">
           <h1 className="text-5xl font-bold text-white text-center py-10">
             Login now!
           </h1>
@@ -75,7 +75,7 @@ const page = () => {
                 name="email"
                 type="email"
                 placeholder="email"
-                className="input input-bordered  border-gray-500  pr-10 w-full text-black"
+                className="input input-bordered bg-transparent text-white border-gray-500  pr-10 w-full "
                 required
               />
             </div>
@@ -110,9 +110,8 @@ const page = () => {
             <div className="form-control mt-4">
               <input
                 type="submit"
-                className="btn  text-white border-none  "
+                className="btn bg-green-400 text-white border-none  "
                 value="login"
-                style={{ backgroundColor: "#cc5e5e" }}
               />
             </div>
           </form>
@@ -123,7 +122,7 @@ const page = () => {
               {" "}
               <Link
                 href="/resister"
-                className="font-semibold text-rose-400 flex items-center"
+                className="font-semibold text-green-500 flex items-center"
               >
                 Register <FaArrowRight className="mx-2"></FaArrowRight>
               </Link>

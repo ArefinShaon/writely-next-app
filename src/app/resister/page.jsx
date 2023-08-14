@@ -76,64 +76,66 @@ const page = () => {
             opacity: 0.9,
           }}
           className="hero min-h-screen bg-base-200 flex justify-center text-black py-28">
-        <div className="card w-full max-w-lg shadow-2xl bg-green-50 ">
-          <h1 className="font-bold text-4xl text-center pt-6">
+        <div className="card w-full max-w-lg shadow-2xl  "
+                  style={{ backgroundColor: "#25272cb3" }}
+                  >
+          <h1 className="font-bold text-4xl text-center pt-6 text-white">
             Create An Account
           </h1>
           <form onSubmit={handleSignUp}  className="card-body">
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-black">Your Name</span>
+                <span className="label-text text-white">Your Name</span>
               </label>
               <input
                 name="name"
                 type="text"
                 placeholder="Name"
-                className="input input-bordered border-zinc-900 bg-white"
+                className="input input-bordered bg-transparent text-white border-gray-500 "
                 required
               />
               <label className="label">
-                <span className="label-text text-black">Your Photo</span>
+                <span className="label-text text-white">Your Photo</span>
               </label>
               <input
                 name="photo"
                 type="text"
                 placeholder="Photo URL"
-                className="input input-bordered border-zinc-900 bg-white"
+                className="input input-bordered bg-transparent text-white border-gray-500 "
                 required
               />
               <label className="label">
-                <span className="label-text text-black">Email Address</span>
+                <span className="label-text text-white">Email Address</span>
               </label>
               <input
                 name="email"
                 type="email"
                 placeholder="Email"
-                className="input input-bordered border-zinc-900 bg-white"
+                className="input input-bordered bg-transparent text-white border-gray-500 "
                 required
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-black">Password</span>
+                <span className="label-text text-white">Password</span>
               </label>
               <input
                 name="password"
                 type="password"
                 placeholder="Password"
-                className="input input-bordered border-zinc-900 bg-white"
+                className="input input-bordered bg-transparent text-white border-gray-500 "
                 required
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-black">Confirm Password</span>
+                <span className="label-text text-white">Confirm Password</span>
               </label>
               <input
                 name="confirmPassword"
                 type="password"
                 placeholder="Confirm Password"
-                className="input input-bordered border-zinc-900 bg-white"
+                className="input input-bordered bg-transparent text-white border-gray-500 "
                 required
               />
                {passwordError && <p className="text-red-500">{passwordError}</p>}
@@ -142,12 +144,12 @@ const page = () => {
             <div className="form-control mt-6">
               <input
                 type="submit"
-                className="btn btn-success text-black "
+                className="btn btn-success text-white "
                 value="Sign Up"
               />
             </div>
           </form>
-          <div className="flex justify-center mt-4 mb-4">
+          <div className="flex justify-center mt-4 mb-4 text-white">
                     <p>Already have an account?</p>
                     
 
