@@ -47,7 +47,7 @@ const page = () => {
   return (
     <div className="m-6 lg:mt-24 lg:px-20 my-4">
       <h1 className="text-2xl lg:text-3xl">
-        <span className="text-black font-bold hover:text-green-600 underline">
+        <span className=" font-bold hover:text-green-600 underline">
           All Blogs
         </span>
       </h1>

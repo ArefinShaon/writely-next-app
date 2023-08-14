@@ -49,7 +49,7 @@ const Page = ({ params }) => {
 
   return (
     <div className="lg:mt-20 mt-16 py-10 mb-10 lg:px-20">
-      <h1 className="text-2xl lg:text-3xl text-black font-bold hover:text-green-600 underline mb-6 text-center">
+      <h1 className="text-2xl lg:text-3xl  font-bold hover:text-green-600 underline mb-6 text-center">
         {decodedCategory}
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-6">
