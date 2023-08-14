@@ -69,10 +69,28 @@ const page = () => {
       </p>
       <div className="mt-6">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 ">
-        {data.map((item) => (
-  <div key={item._id} className="relative">
-    <Link href={`/blog/${item.category}`}>
-      <div className="relative transform transition-all hover:scale-105">
+          {data.map((item) => (
+            <div key={item._id} className="relative">
+              <Link href={`/blog/${item.category}`}>
+                <div className="card w-96 mx-auto md:w-auto relative h-56 lg:h-32 transform transition-all hover:scale-105  shadow-xl image-full">
+                  <figure>
+                    <Image
+                      src={item.pictureUrl}
+                      height={400}
+                      width={400}
+                      alt="Shoes"
+                    />
+                  </figure>
+                  <div className="card-body">
+                    <div className="card-actions justify-center absolute bottom-0 left-0 right-0">
+                      <h3 className="text-center items-center rounded-lg font-semibold text-green-600 bg-white  p-1 mb-1 opacity-60">
+                        {item.category}
+                      </h3>{" "}
+                    </div>
+                  </div>
+                </div>
+
+                {/* <div className="relative transform transition-all hover:scale-105">
         <Image
           src={item.pictureUrl}
           height={400}
@@ -86,11 +104,10 @@ const page = () => {
             {item.category}
           </h3>
         </div>
-      </div>
-    </Link>
-  </div>
-))}
-
+      </div> */}
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -32,7 +32,7 @@ const page = async ({ params }) => {
       </div>
       <div className="mx-auto">
         <Image src={data.pictureUrl} alt="Image" width={700} height={500} className="mx-auto"></Image>
-        <div className="mt-2 flex justify-end font-bold">
+        <div className="mt-2 flex justify-end font-bold px-4 lg:px-56">
           <p className="px-4">
           Uploaded - October 31, 2022
           </p>

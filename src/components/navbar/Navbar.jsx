@@ -85,7 +85,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar fixed text-black  z-50 top-0 bg-green-200">
+    <div className="navbar fixed text-black h-20  z-50 top-0 bg-green-200">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden w-full">
@@ -116,13 +116,10 @@ const Navbar = () => {
           <Image src={logo} alt="Logo" priority={true} />
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-center items-center font-bold">
+      <div className="navbar-end hidden lg:flex md:mr-8">
+      <ul className="menu menu-horizontal px-1 text-center items-center font-bold">
           {navItems}
         </ul>
-      </div>
-      <div className="navbar-end md:mr-8">
-        <p className="font-bold btn btn-ghost">Blog</p>
         <button
           className="theme-toggle m-3 mr-6 "
           onClick={toggleTheme}
