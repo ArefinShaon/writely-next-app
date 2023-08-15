@@ -1,5 +1,5 @@
 import Image from "next/image";
-import img from "public/hero.png";
+import img from "public/hero.jpg";
 import Blog from "./blog/page";
 import Tag from "./allTags/page";
 import Features from "@/components/features/Features";
