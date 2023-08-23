@@ -1,14 +1,13 @@
 import React from "react";
-import { notFound } from "next/navigation";
 import Image from "next/image";
 
 async function getData(id) {
-  const res = await fetch(`https://writely-next-app.vercel.app/api/posts/${id}`, {
+  const res = await fetch(`https://writely-hazel.vercel.app/api/posts/${id}`, {
     cache: "no-store",
   });
 
   if (!res.ok) {
-    return notFound();
+    throw new Error("Failed to fetch data");
   }
 
   return res.json();
